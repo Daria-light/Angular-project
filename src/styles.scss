@@ -1,0 +1,57 @@
+@import "fonts";
+
+:root {
+  --dark-color: #000;
+  --light-color: rgb(255, 255, 255);
+  --purple-color: #ae7aff;
+
+  --main-font: "JetBarins Mono";
+}
+
+body {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  font-family: var(--main-font);
+}
+
+p {
+  margin: 0;
+}
+
+.btn {
+  display: flex;
+  flex-grow: 0;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background-color: var(--purple-color);
+  color: var(--dark-color);
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.btn-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  background-color: var(--purple-color);
+  color: var(--dark-color);
+
+  width: 44px;
+  height: 44px;
+}
+
+.h6 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-size: 14px;
+  line-height: 21px;
+}

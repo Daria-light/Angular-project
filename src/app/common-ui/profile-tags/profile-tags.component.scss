@@ -1,0 +1,46 @@
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none; /* для ul варианта */
+  padding: 0;
+  margin: 0;
+}
+
+.tag {
+  display: inline-block; /* Важно для span */
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+/* Остальные стили остаются без изменений */
+
+.tag-typescript {
+  background-color: #3178c6;
+  color: white;
+}
+.tag-angular {
+  background-color: #dd0031;
+  color: white;
+}
+.tag-javascript {
+  background-color: #f7df1e;
+  color: black;
+}
+.tag-html {
+  background-color: #e34f26;
+  color: white;
+}
+.tag-css {
+  background-color: #1572b6;
+  color: white;
+}
+
+.tag-more {
+  padding: 0.25rem 0.5rem;
+  color: #6b7280;
+  font-style: italic;
+}
