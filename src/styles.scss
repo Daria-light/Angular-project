@@ -61,7 +61,12 @@ p {
     height: 100%;
     z-index: -1;
     border-radius: 4px;
+    transition: all 0.2s ease;
   }
+}
+
+.btn-shadow::before:hover {
+  opacity: 0.7;
 }
 
 .btn-link {
