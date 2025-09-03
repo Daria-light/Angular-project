@@ -8,10 +8,16 @@ import { AuthService } from './auth.service';
 import { inject } from '@angular/core';
 import { catchError, switchMap, throwError } from 'rxjs';
 
+let isRefreshing = false;
+
 export const authauthServiceInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   const token = authService.token;
   if (!token) return next(req);
+
+  if (isRefreshing) {
+    return refreshAndProceed(authService, req, next);
+  }
 
   return next(addToken(req, token)).pipe(
     catchError((error) => {
@@ -28,11 +34,16 @@ const refreshAndProceed = (
   req: HttpRequest<any>,
   next: HttpHandlerFn
 ) => {
-  return authService.refreshAuthToken().pipe(
-    switchMap((res) => {
-      return next(addToken(req, res.access_token));
-    })
-  );
+  if (!isRefreshing) {
+    isRefreshing = true;
+    return authService.refreshAuthToken().pipe(
+      switchMap((res) => {
+        isRefreshing = false;
+        return next(addToken(req, res.access_token));
+      })
+    );
+  }
+  return next(addToken(req, authService.token!));
 };
 
 const addToken = (req: HttpRequest<any>, token: string) => {

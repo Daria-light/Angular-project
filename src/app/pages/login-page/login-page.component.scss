@@ -34,3 +34,34 @@
   cursor: pointer;
   transition: opacity 0.2s ease;
 }
+
+.password-input {
+  position: relative;
+}
+
+.login-input {
+  position: relative;
+}
+
+.password-eye-btn {
+  color: #ffffffbf;
+  position: absolute;
+  right: 12px;
+  top: 55%;
+  background: transparent;
+  border: none;
+  transition: all 0.4s ease;
+}
+
+.password-eye-btn:hover {
+  color: #ffffff;
+}
+
+.telegram-input-btn {
+  position: absolute;
+  right: 12px;
+  top: 53%;
+  background: transparent;
+  border: none;
+  transition: all 0.4s ease;
+}
