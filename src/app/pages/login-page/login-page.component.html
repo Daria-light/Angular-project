@@ -38,7 +38,8 @@
       />
       <button
         class="password-eye-btn"
-        (click)="isPasswordVisible.set(!isPasswordVisible())"
+        [class.active]="isPasswordVisible()"
+        ="isPasswordVisible.set(!isPasswordVisible())"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

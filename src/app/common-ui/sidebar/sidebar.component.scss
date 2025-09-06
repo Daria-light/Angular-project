@@ -1,0 +1,90 @@
+:host {
+  background: var(--dark-color);
+  padding: 20px 12px;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+}
+
+.sidebar-main {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-main-btn {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 8px 16px;
+  font-weight: 700;
+}
+
+.sidebar-main-btn:hover {
+  background-color: var(--dark-gray-color);
+  color: var(--purple-color);
+}
+
+.sidebar-main-btn svg {
+  margin-right: 13px;
+}
+
+.followers {
+  margin-top: 20px;
+}
+
+.followers p {
+  margin-bottom: 20px;
+}
+
+.follower-item + .follower-item {
+  margin-top: 6px; /* Отступ между элементами */
+}
+
+.follower-item {
+  display: flex;
+  height: 48px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.followers-all {
+  display: flex;
+  height: 20px;
+}
+
+.followers-all-link {
+  text-decoration: none;
+  color: var(--purple-color);
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.followers-all-btn {
+  position: relative;
+  bottom: 15%;
+  left: 16px;
+}
+
+.sidebar-profile {
+  // flex: 0 1;
+  margin-top: 100%;
+  display: grid;
+  grid-template-columns: 32px 174px 14px;
+  padding: 4px 16px;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  background: var(--dark-gray-color);
+}
+
+.profile-name {
+  color: var(--purple-color);
+  font-weight: 700;
+  font-size: 14px;
+}
