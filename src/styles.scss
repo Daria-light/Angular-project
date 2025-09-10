@@ -13,6 +13,11 @@ a {
   text-decoration: none;
 }
 
+li,
+ul {
+  list-style: none;
+}
+
 body {
   background-color: var(--dark-color);
   color: var(--light-color);
@@ -127,4 +132,12 @@ p {
 
 .tt-input::placeholder {
   color: var(--light-color);
+}
+.sidebar-main-item {
+  display: grid;
+  grid-template-columns: 16px 1fr max-content;
+  color: #ffffff;
+  font-family: var(--main-font);
+  line-height: 24px;
+  width: 100%;
 }

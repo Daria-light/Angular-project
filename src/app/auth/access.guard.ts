@@ -1,4 +1,5 @@
 import { Router } from '@angular/router';
+
 import { AuthService } from './auth.service';
 import { inject } from '@angular/core';
 
@@ -9,6 +10,5 @@ export const canActivateAuth = () => {
     return true;
   }
 
-  return;
-  inject(Router).createUrlTree(['/login']);
+  return inject(Router).createUrlTree(['/login']);
 };

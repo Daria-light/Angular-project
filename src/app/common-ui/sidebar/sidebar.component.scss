@@ -3,6 +3,11 @@
   padding: 20px 12px;
 }
 
+button {
+  background: none;
+  border: none;
+}
+
 .sidebar-container {
   display: flex;
   flex-direction: column;
@@ -18,11 +23,40 @@
 }
 
 .sidebar-main-btn {
-  display: flex;
+  display: grid;
+  grid-template-columns: 30px 1fr max-content;
   align-items: center;
-  height: 40px;
   padding: 8px 16px;
+  height: 40px;
   font-weight: 700;
+}
+
+.sidebar-main-item {
+  width: 40px;
+  display: grid;
+  grid-template-columns: 30px 1fr max-content;
+  align-items: center;
+  padding: 8px 16px;
+  height: 40px;
+  font-weight: 700;
+}
+
+.sidebar-main-item svg {
+  height: 16px;
+  width: 16px;
+}
+
+symbol {
+  width: 16px;
+  height: 16px;
+  color: pink;
+}
+
+svg {
+  width: 16px;
+  height: 16px;
+  // display: contents;
+  color: var(--purple-color);
 }
 
 .sidebar-main-btn:hover {
