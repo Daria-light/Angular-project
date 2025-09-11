@@ -62,7 +62,8 @@ export class AuthService {
   }
 
   saveTokens(res: TokenResponse) {
-    (this.token = res.access_token), (this.refreshToken = res.refresh_token);
+    this.token = res.access_token;
+    this.refreshToken = res.refresh_token;
 
     this.cookieService.set('token', this.token);
     this.cookieService.set('refreshToken', this.refreshToken);

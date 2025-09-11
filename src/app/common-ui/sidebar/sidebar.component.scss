@@ -3,11 +3,6 @@
   padding: 20px 12px;
 }
 
-button {
-  background: none;
-  border: none;
-}
-
 .sidebar-container {
   display: flex;
   flex-direction: column;
@@ -15,57 +10,20 @@ button {
   height: 90vh;
 }
 
-.sidebar-main {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.sidebar-main-btn {
-  display: grid;
-  grid-template-columns: 30px 1fr max-content;
-  align-items: center;
-  padding: 8px 16px;
-  height: 40px;
-  font-weight: 700;
-}
-
 .sidebar-main-item {
-  width: 40px;
+  width: 100%;
   display: grid;
-  grid-template-columns: 30px 1fr max-content;
+  grid-template-columns: min-content max-content;
+  gap: 12px;
   align-items: center;
-  padding: 8px 16px;
+  line-height: 24px;
   height: 40px;
   font-weight: 700;
 }
 
-.sidebar-main-item svg {
-  height: 16px;
-  width: 16px;
-}
-
-symbol {
-  width: 16px;
-  height: 16px;
-  color: pink;
-}
-
-svg {
-  width: 16px;
-  height: 16px;
-  // display: contents;
-  color: var(--purple-color);
-}
-
-.sidebar-main-btn:hover {
+.sidebar-main-item:hover {
   background-color: var(--dark-gray-color);
   color: var(--purple-color);
-}
-
-.sidebar-main-btn svg {
-  margin-right: 13px;
 }
 
 .followers {
