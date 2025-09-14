@@ -1,0 +1,19 @@
+:host {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  align-items: center;
+}
+
+.card-item {
+  display: grid;
+  grid-template-columns: 32px max-content;
+  gap: 12px;
+  align-items: center;
+}
+
+.subscriber-avatar {
+  width: 32px;
+  border-radius: 50%;
+}

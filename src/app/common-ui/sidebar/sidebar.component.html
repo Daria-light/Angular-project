@@ -16,20 +16,14 @@
   </nav>
   <div class="followers">
     <p>Подписчики</p>
-    <div class="follower-item">
-      <img src="" alt="avatar" />
-      <p>Name LastName</p>
-    </div>
-    <div class="follower-item">
-      <img src="" alt="avatar" />
-      <p>Name LastName</p>
-    </div>
-    <div class="follower-item">
-      <img src="" alt="avatar" />
-      <p>Name LastName</p>
-    </div>
-    <a href="" class="followers-all"
-      ><p class="followers-all-link">Все подписчики</p>
+
+    <!-- <pre>{{ subscribers$ | async | json }}</pre> -->
+    @for (profile of subscribers$ |async;track profile.id){
+    <app-subscriber-card [profile]="profile"> </app-subscriber-card>
+
+    }
+    <a href="" class="followers-all" [routerLink]="[`/subscribers`]">
+      <p class="followers-all-link">Все подписчики</p>
       <span>
         <svg xmlns="http://www.w3.org/2000/svg" class="followers-all-btn">
           <path

@@ -46,8 +46,10 @@
 }
 
 .followers-all {
-  display: flex;
-  height: 20px;
+  display: grid;
+  grid-template-columns: max-content min-content;
+  height: 12px;
+  width: 100px;
 }
 
 .followers-all-link {
@@ -59,8 +61,8 @@
 
 .followers-all-btn {
   position: relative;
-  bottom: 15%;
-  left: 16px;
+  bottom: -3px;
+  left: 11px;
 }
 
 .sidebar-profile {
