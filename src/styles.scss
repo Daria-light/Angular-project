@@ -25,6 +25,8 @@ ul {
 }
 
 body {
+  height: 100dvh;
+  margin: 0;
   background-color: var(--dark-color);
   color: var(--light-color);
   font-family: var(--main-font);
@@ -146,4 +148,15 @@ p {
   font-family: var(--main-font);
   line-height: 24px;
   width: 100%;
+}
+
+.sidebar__footer {
+  margin-top: auto;
+  background: var(--dark-gray-color);
+  border-radius: 2px;
+  padding: 4px 16px;
+  display: grid;
+  grid-template-columns: 32px 1fr 16px;
+  gap: 12px;
+  align-items: center;
 }

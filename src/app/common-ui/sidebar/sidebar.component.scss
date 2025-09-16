@@ -6,8 +6,7 @@
 .sidebar-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 90vh;
+  height: 100%;
 }
 
 .sidebar-main-item {
@@ -81,4 +80,8 @@
   color: var(--purple-color);
   font-weight: 700;
   font-size: 14px;
+}
+
+.footer-avatar {
+  width: 32px;
 }

@@ -34,9 +34,17 @@
       </span>
     </a>
   </div>
-  <div class="sidebar-profile">
-    <img src="" alt="ava" />
-    <p class="profile-name">nikename</p>
+  <div class="sidebar__footer">
+    @if (me();as me){ @if (me.avatarUrl){
+    <img class="footer-avatar" [src]="me.avatarUrl | imgUrl" alt="" />
+    } @else{
+    <img
+      class="footer-avatar"
+      src="https://icherniakov.ru/yt-course/static/avatars/test_user_ws_51fc82ba.png"
+      alt="ava"
+    />
+    <p class="profile-name">{{ me.firstName }}</p>
+
     <a href=""
       ><span
         ><svg
@@ -51,5 +59,6 @@
             fill="#AE7AFF"
           /></svg></span
     ></a>
+    } }
   </div>
 </div>
