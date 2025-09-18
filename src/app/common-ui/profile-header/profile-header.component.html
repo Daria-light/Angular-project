@@ -1,0 +1,19 @@
+@if (profile();as profile){
+<div class="profile-header-container">
+  <div class="profile-header">
+    <img
+      class="footer-avatar"
+      src="https://icherniakov.ru/yt-course/static/avatars/test_user_ws_51fc82ba.png"
+      alt="ava"
+    />
+
+    <div class="name-title">
+      <p class="profile-firstName">{{ profile.firstName }}</p>
+      <p class="subtitle">{{ profile.username }}</p>
+    </div>
+  </div>
+</div>
+} @else{
+
+<p>bye</p>
+}

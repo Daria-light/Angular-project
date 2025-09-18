@@ -1,0 +1,55 @@
+.profile-page__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-edit {
+  display: flex;
+  align-items: center;
+}
+
+.edit-btn {
+  display: grid;
+  grid-template-columns: 110px 16px;
+  gap: 8px;
+  align-items: center;
+  background: var(--purple-color);
+  border: 1px solid var(--dark-color);
+  border-radius: 2px;
+  height: 44px;
+  font-style: bold;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+.settings-btn {
+  color: var(--dark-color);
+  padding-top: 3px;
+}
+
+.settings-svg {
+  padding-top: 5px;
+}
+
+.profile-page__body {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+}
+
+.profile-page__about {
+  display: grid;
+  gap: 32px;
+}
+
+.subscriber-avatar {
+  width: 32px;
+  border-radius: 50%;
+}
+
+.list-subscribers {
+  display: grid;
+  grid-template-columns: 36px 36px 36px 36px 36px 36px 36px;
+  align-items: center;
+  gap: 14px;
+}

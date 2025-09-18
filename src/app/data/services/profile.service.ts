@@ -20,10 +20,19 @@ export class ProfileService {
     return this.http.get<Profile[]>(`${this.baseApiUrl}account/test_accounts`);
   }
 
+  getAccount(id: string) {
+    return this.http.get<Profile>(`${this.baseApiUrl}account/${id}`);
+  }
+
   getSubscribersShotList() {
     return this.http
       .get<Pageble<Profile>>(`${this.baseApiUrl}account/subscribers/`)
       .pipe(map((res) => res.items.slice(3)));
+  }
+  getSubscribersLongList() {
+    return this.http
+      .get<Pageble<Profile>>(`${this.baseApiUrl}account/subscribers/`)
+      .pipe(map((res) => res.items.slice(0)));
   }
 
   getMe() {
