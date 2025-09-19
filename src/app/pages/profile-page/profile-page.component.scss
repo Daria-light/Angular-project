@@ -51,5 +51,11 @@
   display: grid;
   grid-template-columns: 36px 36px 36px 36px 36px 36px 36px;
   align-items: center;
-  gap: 14px;
+  gap: 6px;
+}
+
+.skill-tags-item {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
 }

@@ -11,6 +11,7 @@ import { IconComponent } from '../../common-ui/svg-icon/svg-icon.component';
 import { RouterLink } from '@angular/router';
 import { SubscriberCardComponent } from '../../common-ui/sidebar/subscriber-card/subscriber-card.component';
 import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
+import { PostFeedComponent } from './post-feed/post-feed.component';
 
 @Component({
   selector: 'app-profile-page',
@@ -22,6 +23,7 @@ import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
     RouterLink,
     SubscriberCardComponent,
     ImgUrlPipe,
+    PostFeedComponent,
   ],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.scss',
@@ -29,7 +31,7 @@ import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
 export class ProfilePageComponent {
   profileService = inject(ProfileService);
 
-  subscribers$ = this.profileService.getSubscribersLongList();
+  subscribers$ = this.profileService.getSubscribersShotList(5);
 
   route = inject(ActivatedRoute);
 

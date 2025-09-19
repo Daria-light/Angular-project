@@ -12,22 +12,24 @@
   </div>
 </header>
 <main class="profile-page__body">
-  <div></div>
+  <app-post-feed></app-post-feed>
   <div class="profile-page__about">
     <div class="followers">
       <p class="h5">Подписчики</p>
 
       <!-- <pre>{{ subscribers$ | async | json }}</pre> -->
       <div class="list-subscribers">
-        @for (profile of subscribers$ |async;track profile.id){
-        <img
-          class="subscriber-avatar"
-          [src]="profile.avatarUrl | imgUrl"
-          [alt]="profile.lastName"
-        />
+        @for (subscriber of subscribers$ | async;track subscriber.id){
+        <a [routerLink]="['/profile', subscriber.id]">
+          <img
+            class="subscriber-avatar"
+            [src]="subscriber.avatarUrl | imgUrl"
+            [alt]="subscriber.lastName"
+          />
+        </a>
 
         }
-        <a href="">
+        <a [routerLink]="['/search']" href="">
           <svg
             width="14"
             height="14"
@@ -46,6 +48,13 @@
     </div>
     <div class="skill-tags">
       <p class="h5">Навыки</p>
+      <div class="skill-tags-item">
+        @for (skill of
+        ['123','123','123','12332','123','123','123','123','123','123','123','123','123','123',];track
+        skill){
+        <div class="profile-card__tags-skill">{{ skill }}</div>
+        }
+      </div>
     </div>
     <div class="description">
       <p class="h5">Обо мне</p>

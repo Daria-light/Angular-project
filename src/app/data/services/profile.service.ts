@@ -24,15 +24,10 @@ export class ProfileService {
     return this.http.get<Profile>(`${this.baseApiUrl}account/${id}`);
   }
 
-  getSubscribersShotList() {
+  getSubscribersShotList(subAmount: number = 3) {
     return this.http
       .get<Pageble<Profile>>(`${this.baseApiUrl}account/subscribers/`)
-      .pipe(map((res) => res.items.slice(3)));
-  }
-  getSubscribersLongList() {
-    return this.http
-      .get<Pageble<Profile>>(`${this.baseApiUrl}account/subscribers/`)
-      .pipe(map((res) => res.items.slice(0)));
+      .pipe(map((res) => res.items.slice(0, subAmount)));
   }
 
   getMe() {
