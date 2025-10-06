@@ -35,18 +35,44 @@
         formControlName="description"
       ></textarea>
     </label>
-    <label for="" class="tt-form-label">
-      <span class="tt-form-label-text">Навыки</span>
-      <input
-        placeholder="Введите данные"
-        class="tt-form-input"
-        formControlName="stack"
-      />
-    </label>
-  </div>
-  <div>
-    <div>
-      <button class="btn" (click)="onSave()">Сохранить</button>
+    <div class="textareaStack-container">
+      <label for="" class="tt-form-label">
+        <span class="tt-form-label-text">Навыки</span>
+        <textarea
+          (keydown.enter)="onTagsetKeyDown($event)"
+          [(ngModel)]="tagSet"
+          placeholder="Введите данные"
+          class="tt-form-input tags-textarea"
+          formControlName="stack"
+        ></textarea>
+        <div class="tags">
+          @for(tag of tags;track tag) {
+          <div class="tag-item" (click)="tagDelete(tag)">
+            <span>
+              {{ tag }}
+            </span>
+
+            <span class="tag-item-btn"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="M20 20L4 4m16 0L4 20"
+                />
+              </svg>
+            </span>
+          </div>
+          }
+        </div>
+      </label>
     </div>
   </div>
+  <button class="btn" (click)="onSave()">Сохранить</button>
 </form>

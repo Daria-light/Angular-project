@@ -7,7 +7,7 @@
   <nav class="sidebar-main">
     <ul class="main-menu-list">
       <li *ngFor="let menuItem of menuItems">
-        <button class="sidebar-main-item">
+        <button class="sidebar-main-item" [routerLink]="menuItem.link">
           <svg width="14" height="14" [icon]="menuItem.icon"></svg>
           <span>{{ menuItem.label }}</span>
         </button>

@@ -35,4 +35,8 @@ export class ProfileService {
       .get<Profile>(`${this.baseApiUrl}account/me`)
       .pipe(tap((res) => this.me.set(res)));
   }
+
+  patchProfile(profile: Partial<Profile>) {
+    return this.http.patch<Profile>(`${this.baseApiUrl}account/me`, profile);
+  }
 }

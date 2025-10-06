@@ -1,13 +1,18 @@
 import { Component, effect, inject } from '@angular/core';
 import { ProfileHeaderComponent } from '../../common-ui/profile-header/profile-header.component';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  Validators,
+} from '@angular/forms';
 import { ProfileService } from '../../data/services/profile.service';
 import { firstValueFrom, tap } from 'rxjs';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-page',
-  imports: [ProfileHeaderComponent, ReactiveFormsModule],
+  imports: [ProfileHeaderComponent, ReactiveFormsModule, FormsModule],
 
   templateUrl: './edit-page.component.html',
   styleUrl: './edit-page.component.scss',
@@ -15,33 +20,103 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class EditPageComponent {
   fb = inject(FormBuilder);
   porfileService = inject(ProfileService);
+  tagSet!: string;
+  tags: string[] = [];
 
   form = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     username: [{ value: '', disabled: true }, Validators.required],
-    desctiption: [''],
+    description: [''],
     stack: [''],
   });
 
-  constructor() {
-    let me = this.porfileService.getMe().subscribe();
-    console.log(this.porfileService.me());
+  // constructor() {
+  //   effect(() => {
+  //     //@ts-ignore
+  //     this.form.patchValue(this.porfileService.me());
+  //   });
+  // }
 
-    effect(() => {
-      if (!!this.porfileService.me()) {
-        console.log(this.porfileService.me());
-        console.log('it issss ', me);
-        this.form.patchValue({
-          //@ts-ignore
-          username: this.porfileService.me().username,
+  // onSave() {
+  //   this.form.markAllAsTouched();
+  //   this.form.updateValueAndValidity();
+  //   if (this.form.invalid) {
+  //     console.log('form is invalid');
+  //     return;
+  //   } else {
+  //     //@ts-ignore
+  //     firstValueFrom(this.porfileService.patchProfile(this.form.value));
+  //     console.log('form is valid');
+  //   }
+  // }
 
-          // username: me.username,
-        });
-      }
-    });
-    // console.log(!!this.porfileService.me);
+  onTagsetKeyDown(event: Event) {
+    if (event) event.preventDefault();
+    if (this.tagSet == '' || this.tagSet == null) return;
+    if (this.tags.includes(this.tagSet.toLowerCase())) {
+      return (this.tagSet = '');
+    }
+
+    this.tags.push(this.tagSet.toLowerCase());
+    this.tagSet = '';
+    return;
   }
 
-  onSave() {}
+  tagDelete(tag: string) {
+    this.tags = this.tags.filter((item) => item !== tag);
+  }
+
+  constructor() {
+    effect(() => {
+      // @ts-ignore
+      this.form.patchValue({
+        ...this.porfileService.me(),
+        //@ts-ignore
+        stack: this.mergeStack(this.porfileService.me()?.stack),
+      });
+
+      if (this.porfileService.me()?.stack) {
+        //@ts-ignore
+        this.tags = this.porfileService.me()?.stack;
+      }
+
+      if (this.tagSet) {
+        this.tagSet = '';
+      }
+      console.log();
+    });
+  }
+
+  onSave() {
+    this.form.markAllAsTouched();
+    this.form.updateValueAndValidity();
+
+    if (this.form.invalid) return;
+
+    // @ts-ignore
+    firstValueFrom(
+      //@ts-ignore
+      this.porfileService.patchProfile({
+        ...this.form.value,
+        stack: this.splitStack(this.tags),
+      })
+    );
+  }
+
+  splitStack(stack: string | null | string[] | undefined) {
+    if (!stack) return [];
+
+    if (Array.isArray(stack)) return stack;
+
+    return stack.split(',');
+  }
+
+  mergeStack(stack: string | null | string[] | undefined) {
+    if (!stack) return '';
+
+    if (Array.isArray(stack)) return stack.join(',');
+
+    return stack;
+  }
 }

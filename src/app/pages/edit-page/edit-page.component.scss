@@ -24,3 +24,39 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+
+.textareaStack-container {
+  position: relative;
+}
+
+.tags-textarea {
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  // border: 1px solid salmon;
+}
+
+.tag-item {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  padding: 4px;
+  // background: var(--purple-color);
+}
+
+.tag-item:hover {
+  color: var(--purple-color);
+  border-color: var(--purple-color);
+  transition: all ease 0.5s;
+}
+
+.tag-item-btn {
+  position: relative;
+  top: 2px;
+}
