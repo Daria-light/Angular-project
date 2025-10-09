@@ -5,6 +5,7 @@
   --light-color: rgb(255, 255, 255);
   --light-transparent-color: #ffffffbf;
   --purple-color: #ae7aff;
+  --purple-dark-color: #8350d4;
   --gray-color: #5f646d;
   --dark-gray-color: #161616;
   --main-font: "JetBrains Mono";
@@ -66,6 +67,36 @@ p {
   line-height: 24px;
   width: 100%;
   border-radius: 4px;
+  transition: all ease 0.4s;
+}
+
+.btn:hover {
+  background: var(--purple-dark-color);
+}
+
+.btn-null {
+  background: none;
+  border: 1px solid var(--light-color);
+  color: var(--light-color);
+  font-family: var(--main-font);
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 2px;
+  transition: all ease 0.4s;
+}
+
+.btn-null:hover {
+  background: var(--dark-gray-color);
+}
+
+.btn-svg {
+  background: none;
+  border: 1px solid var(--light-color);
+  padding: 14px;
+  transition: all ease 0.4s;
+}
+.btn-svg:hover {
+  background: var(--dark-gray-color);
 }
 
 .btn-shadow {
@@ -190,6 +221,8 @@ p {
   background: none;
   color: var(--light-color);
   border-bottom: 1px solid var(--light-color);
+  align-items: center;
+  padding-top: 8px;
 }
 
 .tt-form-input:focus-visible {
@@ -201,7 +234,8 @@ p {
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
-  align-items: center;
+  line-height: normal;
+  vertical-align: middle;
 }
 
 .tt-textarea {

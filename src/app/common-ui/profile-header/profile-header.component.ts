@@ -1,6 +1,7 @@
-import { Component, input } from '@angular/core';
-import { Profile } from '../../data/interface/profile-interface';
+import { Component } from '@angular/core';
 import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
+import { input } from '@angular/core';
+import { Profile } from '../../data/interface/profile-interface';
 
 @Component({
   selector: 'app-profile-header',

@@ -11,7 +11,7 @@
   background-color: var(--dark-color);
   padding: 32px;
   border: 1px solid var(--light-color);
-  height: calc(100dvh - (24px * 4));
+  height: 100%;
 }
 
 .profile-form {
@@ -30,6 +30,13 @@
 }
 
 .tags-textarea {
+  align-items: center; /* Выравнивание по центру */
+  padding-top: 12px; /* Достаточный padding сверху и снизу */
+}
+
+.tags-textarea::placeholder {
+  line-height: normal;
+  vertical-align: middle;
 }
 
 .tags {
@@ -47,16 +54,30 @@
   border: 1px solid var(--light-color);
   border-radius: 4px;
   padding: 4px;
-  // background: var(--purple-color);
+  transition: all ease 0.5s;
 }
 
 .tag-item:hover {
   color: var(--purple-color);
   border-color: var(--purple-color);
-  transition: all ease 0.5s;
 }
 
 .tag-item-btn {
   position: relative;
   top: 2px;
+}
+
+.form-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-btns-main {
+  display: flex;
+  gap: 20px;
+}
+
+.form-btns-svg {
+  display: flex;
+  gap: 20px;
 }
