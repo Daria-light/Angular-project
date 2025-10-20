@@ -11,9 +11,10 @@ export const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', component: SearchPageComponent },
+      { path: '', redirectTo: 'profile/:id', pathMatch: 'full' },
       { path: 'profile/:id', component: ProfilePageComponent },
       { path: 'edit', component: EditPageComponent },
+      { path: 'search', component: SearchPageComponent },
     ],
     canActivate: [canActivateAuth],
   },
