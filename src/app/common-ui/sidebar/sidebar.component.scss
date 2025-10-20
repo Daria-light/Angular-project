@@ -18,6 +18,10 @@
   line-height: 24px;
   height: 40px;
   font-weight: 700;
+  &.act {
+    background-color: var(--dark-gray-color);
+    color: var(--purple-color);
+  }
 }
 
 .sidebar-main-item:hover {
