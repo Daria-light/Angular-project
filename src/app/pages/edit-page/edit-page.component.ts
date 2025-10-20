@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, ViewChild } from '@angular/core';
 import { ProfileHeaderComponent } from '../../common-ui/profile-header/profile-header.component';
 import { AvatarUploadComponent } from './avatar-upload/avatar-upload.component';
 import { FormBuilder, FormsModule, Validators } from '@angular/forms';
@@ -21,8 +21,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class EditPageComponent {
   fb = inject(FormBuilder);
   porfileService = inject(ProfileService);
+
   tagSet!: string;
   tags: string[] = [];
+
+  @ViewChild(AvatarUploadComponent) avatarUploader!: AvatarUploadComponent;
 
   form = this.fb.group({
     firstName: ['', Validators.required],
@@ -78,6 +81,12 @@ export class EditPageComponent {
     this.form.updateValueAndValidity();
 
     if (this.form.invalid) return;
+
+    if (this.avatarUploader.avatar) {
+      firstValueFrom(
+        this.porfileService.uploadAvatar(this.avatarUploader.avatar)
+      );
+    }
 
     // @ts-ignore
     firstValueFrom(

@@ -37,6 +37,12 @@
   <div class="sidebar__footer">
     @if (me();as me){ @if (me.avatarUrl){
     <img class="footer-avatar" [src]="me.avatarUrl | imgUrl" alt="" />
+    <p class="profile-name">{{ me.firstName }}</p>
+
+    <a href="" class="settings-btn"
+      ><span height="14" width="14"
+        ><svg height="14" width="14" icon="set"></svg></span
+    ></a>
     } @else{
     <img
       class="footer-avatar"

@@ -13,6 +13,10 @@
   padding: 16px;
   display: grid;
   place-content: center;
+  &.fileover {
+    border: 1px dashed var(--purple-color);
+    color: var(--purple-color);
+  }
 }
 
 .dropzone-content {
@@ -23,4 +27,10 @@
 
 .avatar-input {
   display: none;
+}
+
+.avatar-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
 }
