@@ -10,14 +10,15 @@
 }
 
 .sidebar-main-item {
-  width: 100%;
+  width: 90%;
   display: grid;
   grid-template-columns: min-content max-content;
   gap: 12px;
   align-items: center;
-  line-height: 24px;
+  line-height: 20px;
   height: 40px;
   font-weight: 700;
+  padding-left: 12px;
   &.act {
     background-color: var(--dark-gray-color);
     color: var(--purple-color);
