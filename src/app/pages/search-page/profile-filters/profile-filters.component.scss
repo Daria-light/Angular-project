@@ -4,4 +4,11 @@
   border: 1px solid var(--light-color);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+  justify-content: space-between;
+}
+
+.filter-label-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--light-transparent-color);
 }

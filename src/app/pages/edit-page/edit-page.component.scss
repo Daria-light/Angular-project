@@ -11,7 +11,6 @@
   background-color: var(--dark-color);
   padding: 32px;
   border: 1px solid var(--light-color);
-  height: 100%;
 }
 
 .profile-form {
@@ -30,8 +29,8 @@
 }
 
 .tags-textarea {
-  align-items: center; /* Выравнивание по центру */
-  padding-top: 12px; /* Достаточный padding сверху и снизу */
+  align-items: center;
+  padding-top: 12px;
 }
 
 .tags-textarea::placeholder {
@@ -43,8 +42,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-
-  // border: 1px solid salmon;
+  margin-bottom: 20px;
 }
 
 .tag-item {

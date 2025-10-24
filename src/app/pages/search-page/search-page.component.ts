@@ -22,11 +22,5 @@ export class SearchPageComponent {
   title = 'nik-talk';
   profileService = inject(ProfileService);
 
-  profiles: Profile[] = [];
-
-  constructor() {
-    this.profileService.getTestAccount().subscribe((val) => {
-      this.profiles = val;
-    });
-  }
+  profiles = this.profileService.filterProfiles;
 }

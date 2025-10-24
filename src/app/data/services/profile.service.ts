@@ -16,6 +16,8 @@ export class ProfileService {
 
   me = signal<Profile | null>(null);
 
+  filterProfiles = signal<Profile[] | null>([]);
+
   getTestAccount() {
     return this.http.get<Profile[]>(`${this.baseApiUrl}account/test_accounts`);
   }
@@ -47,5 +49,11 @@ export class ProfileService {
       `${this.baseApiUrl}account/upload_image`,
       fd
     );
+  }
+
+  filterProfile(params: Record<string, any>) {
+    return this.http
+      .get<Pageble<Profile>>(`${this.baseApiUrl}account/accounts`, { params })
+      .pipe(tap((res) => this.filterProfiles.set(res.items)));
   }
 }
